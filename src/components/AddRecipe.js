@@ -12,7 +12,7 @@ export default function AddRecipe(props) {
         
         <input type="submit" value="Add Recipe from URL"/>    
       </form>
-
+      <h2>Or</h2>
       <h3>Type it in </h3>
       <form className="typedRecipe">
         <ul>
@@ -26,13 +26,13 @@ export default function AddRecipe(props) {
           </li>
           <li>
             <label>Type</label>
-            <input type="text" name="type" placeholder="e.g Breakfast/lunch"/>
+            <input type="text" name="type" placeholder="e.g Breakfast / Lunch / Snack"/>
           </li>
           <li>
             <label>Picture</label>
             <input type="text" name="picture" placeholder="paste image address here"/>
           </li>
-          <li>
+          <li id="ingredients">
             <label>Ingredients</label>
             <form className="addIngredient">
               <input type='number'/>
@@ -49,6 +49,7 @@ export default function AddRecipe(props) {
                 <option value="us_teaspoon">us teaspoon</option>
                 <option value="Australian_cups">Australian cups</option>
                 <option value="Australian_tablespoon">Australian tablespoon</option>
+                <option value="non"> --- </option>
               </select>
               <input type="text" placeholder="peanuts"/>
               <input type="submit" value="+"/>
@@ -58,7 +59,7 @@ export default function AddRecipe(props) {
             <label>Instructions</label>
             <textarea type="text" name="instructions" />
           </li>
-          <li>
+          <li id="private">
             <input type="checkbox" name="servingSize"/>
             <label>Make it private (only available to me)</label>
           </li>
