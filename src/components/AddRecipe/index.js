@@ -26,6 +26,20 @@ class AddRecipe extends React.Component {
     console.log(this.state.linkRecipe)
   }
   
+  onTypeChange = (event) => {
+    this.setState({
+      typedRecipe:{
+        [event.target.name]: event.target.value
+      }
+    })
+  }
+
+  onTypeSubmit = (event) => {
+    event.preventDefault()
+    console.log(this.state.typedRecipe)
+  }
+
+
   render() {
     return(
       <div>
@@ -39,55 +53,35 @@ class AddRecipe extends React.Component {
           <input type="submit" value="Add Recipe from URL"/>    
         </form>
         <h2>Or</h2>
-        <Ingredients></Ingredients>
         <h3>Type it in </h3>
-        <form className="typedRecipe">
+        <form className="typedRecipe" onSubmit={this.onTypeSubmit}>
           <ul>
           <li>
               <label>Title</label>
-              <input type="text" name="title" placeholder="e.g Mom's chicken parmesan" required/>
+              <input type="text" name="title" placeholder="e.g Mom's chicken parmesan" required onChange={this.onTypeChange}/>
             </li>
             <li>
               <label>Serving size</label>
-              <input type="number" name="servingSize" required/>
+              <input type="number" name="servingSize" required onChange={this.onTypeChange}/>
             </li>
             <li>
               <label>Type</label>
-              <input type="text" name="type" placeholder="e.g Breakfast / Lunch / Snack"/>
+              <input type="text" name="type" placeholder="e.g Breakfast / Lunch / Snack" onChange={this.onTypeChange}/>
             </li>
             <li>
               <label>Picture</label>
-              <input type="text" name="picture" placeholder="paste image address here"/>
+              <input type="text" name="picture" placeholder="paste image address here" onChange={this.onTypeChange}/>
             </li>
             <li id="ingredients">
               <label>Ingredients</label>
-              <form className="addIngredient">
-                <input type='number'/>
-                <select>
-                  <option value="kg">kilogram (kg)</option>
-                  <option value="g">gram (g)</option>
-                  <option value="l">liter (l)</option>
-                  <option value="ml">milliliter (ml)</option>
-                  <option value="lb">pound (lb)</option>
-                  <option value="oz">ounce (oz)</option>
-                  <option value="us_cups">us cups</option>
-                  <option value="us_tablespoon">us tablespoon</option>
-                  <option value="us_dessert_spoon">us dessert spoon</option>
-                  <option value="us_teaspoon">us teaspoon</option>
-                  <option value="Australian_cups">Australian cups</option>
-                  <option value="Australian_tablespoon">Australian tablespoon</option>
-                  <option value="non"> --- </option>
-                </select>
-                <input type="text" placeholder="peanuts"/>
-                <input type="submit" value="+"/>
-              </form>
+              <Ingredients/>
             </li>
             <li>
               <label>Instructions</label>
-              <textarea type="text" name="instructions" required/>
+              <textarea type="text" name="instructions" required onChange={this.onTypeChange}/>
             </li>
             <li id="private">
-              <input type="checkbox" name="servingSize"/>
+              <input type="checkbox" name="private" onChange={this.onTypeChange}/>
               <label>Make it private (only available to me)</label>
             </li>
             <li>

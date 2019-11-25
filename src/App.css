@@ -64,7 +64,7 @@ li {
 }
 
 .typedRecipe {
-  max-width:800px;
+  max-width:600px;
 	margin:50px auto;
   background:#dc9ca5;
   opacity: 0.9;  
@@ -77,12 +77,12 @@ li {
 .typedRecipe ul {
   list-style:none;
 	padding:0;
-	margin:0;
+	margin:20px;
 }
 
 .typedRecipe li {
   display: block;
-  width: 50%;
+  width: 100%;
 	padding: 9px;
 	border:1px solid #730017;
 	margin-bottom: 30px;
@@ -127,7 +127,7 @@ li {
 
 #private {
   border: none;
-  width: 40%;
+  width: 60%;
 }
 
 #private label {
@@ -169,7 +169,8 @@ li {
 
 #ingredients {
   min-height: 50px;
-  background-color: teal;
+  /* min-width: 100px; */
+  /* background-color: teal; */
   /* display: flex;
   flex-direction: row;
   align-items: flex-start; */
@@ -200,11 +201,18 @@ li {
 }
 
 .addIngredient input[type="submit"] {
-  /* width: 20%; */
-  /* height: 5%; */
-  /* display: flex;
-  float: left; */
-  margin: 5px;
-  border-radius: 5px;
-  text-align: center;
+	background-color: transparent;
+	border: 2px solid rgb(63, 63, 63);
+	display: inline-block;
+	cursor: pointer;
+	color: rgb(63, 63, 63);
+	padding: 8px 18px;
+	text-decoration: none;
+  font: 14px Arial, Helvetica, sans-serif;
+  font-weight: 600;
+}
+
+.addIngredient input[type="submit"]:hover {
+  background: linear-gradient(to bottom, #2D77A2 5%, #337DA8 100%);
+  background-color: #28739E;
 }

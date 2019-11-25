@@ -2,27 +2,11 @@ import React from 'react';
 
 class Ingredients extends React.Component {
   state = {
-    ingredients: [
-      { measurement: '10',
-        units: 'kg',
-        ingredient_name: 'potatos'},
-      { measurement: '200',
-        units: 'gr',
-        ingredient_name: 'flower'},
-      { measurement: '2',
-        units: 'cups',
-        ingredient_name: 'water'},
-      ],
+    ingredients: [],
     measurement: '',
     units: 'kg',
-    ingredient_name: ''
+    ingredient_name: '',
   }
-
-  ingredientsList = this.state.ingredients[0] && this.state.ingredients.map((ingredient,index) => {
-      return <li key={index} className="ingredientsList">
-        {ingredient.measurement} {ingredient.units} {ingredient.ingredient_name}
-      </li>
-  })
 
   onChange = (event) => {
     this.setState({
@@ -37,28 +21,32 @@ class Ingredients extends React.Component {
       units: this.state.units,
       ingredient_name: this.state.ingredient_name
     }
-    this.state.ingredients.push(fullIngredientInfo)
     
     this.setState({
-      measurement:'',
-      units:'kg',
+      ingredients: [...this.state.ingredients, fullIngredientInfo],
+      measurement: '',
+      units: 'kg',
       ingredient_name:'',
     })
-    console.log('state:', this.state)
   }
   
   render() {
     return(
       <div>
         <ul>
-          {this.ingredientsList}
+          {this.state.ingredients[0] && this.state.ingredients.map((ingredient,index) => {
+            return <li key={index} className="ingredientsList">
+              {ingredient.measurement} {ingredient.units} {ingredient.ingredient_name}
+            </li>
+          })}
         </ul>
+
         <form className="addIngredient" onSubmit={this.onSubmit}>
           <input type='number' name='measurement' value={this.state.measurement} onChange={this.onChange} required/>
           <select name='units' onChange={this.onChange}>
             <option value="kg">kilogram (kg)</option>
             <option value="g">gram (g)</option>
-            <option value="l">liter (l)</option>
+            <option value="L">liter (l)</option>
             <option value="ml">milliliter (ml)</option>
             <option value="lb">pound (lb)</option>
             <option value="oz">ounce (oz)</option>
@@ -68,7 +56,9 @@ class Ingredients extends React.Component {
             <option value="us_teaspoon">us teaspoon</option>
             <option value="Australian_cups">Australian cups</option>
             <option value="Australian_tablespoon">Australian tablespoon</option>
-            <option value="non"> --- </option>
+            <option value="small"> Small </option>
+            <option value="medium"> Medium </option>
+            <option value="large"> Large </option>
           </select>
           <input type="text" name='ingredient_name' placeholder="peanuts" value={this.state.ingredient_name} onChange={this.onChange} required/>
           <input type="submit" value="+"/>
