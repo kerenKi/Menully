@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { List } from 'semantic-ui-react'
 import { RecipeForm } from './RecipeForm'
 
-function AddRecipeWH () {
+function AddRecipe () {
   //inside the useState the initial state is an empty array
   //useState returns an array: the first element is a state value and the second is a function to update the state
   //deconstructing from useState the value of the state and the update function:
@@ -30,4 +30,4 @@ function AddRecipeWH () {
   )
 }
 
-export default AddRecipeWH;
+export default AddRecipe;
