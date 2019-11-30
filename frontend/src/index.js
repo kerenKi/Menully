@@ -5,6 +5,7 @@ import App from './App';
 import { Provider } from 'react-redux'
 import store from './store'
 import {BrowserRouter} from 'react-router-dom'
+import 'semantic-ui-css/semantic.min.css'
 
 
 ReactDOM.render(
@@ -14,4 +15,4 @@ ReactDOM.render(
     </BrowserRouter>
   </Provider>, document.getElementById('root'));
 
-serviceWorker.unregister();
+// serviceWorker.unregister();
